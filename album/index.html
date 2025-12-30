@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 앨범</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        .music-player {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+        }
+        
+        figure {
+            margin: 30px 0;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        figcaption {
+            padding: 15px 0;
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        
+        picture img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌍 여행 앨범</h1>
+    
+    <section class="music-player">
+        <h2>배경음악</h2>
+        <audio controls>
+            <source src="./media/travel-bgm.mp3" type="audio/mpeg">
+            브라우저가 audio 태그를 지원하지 않습니다.
+        </audio>
+    </section>
+
+    <article>
+        <figure>
+            <picture>
+                <source media="(max-width: 480px)" srcset="https://via.placeholder.com/400x300?text=small_barcelona">
+                <source media="(max-width: 768px)" srcset="https://via.placeholder.com/600x400?text=medium_barcelona">
+                <img src="./media/falilia.jpg" alt="스페인 바르셀로나의 아이콘 파밀리아 대성당">
+            </picture>
+            <figcaption>
+                <strong>바르셀로나 파밀리아 대성당</strong><br>
+                세계에서 가장 유명한 미완성 성당으로 안토니 가우디의 건축 예술이 담긴 걸작. 
+                복잡한 장식과 독특한 구조가 마치 성 위의 성을 보는 듯한 경험을 선사한다.
+            </figcaption>
+        </figure>
+
+        <figure>
+            <picture>
+                <source media="(max-width: 480px)" srcset="https://via.placeholder.com/400x300?text=small_rome">
+                <source media="(max-width: 768px)" srcset="https://via.placeholder.com/600x400?text=medium_rome">
+                <img src="./media/rome.jpg" alt="고대 로마 제국의 위대한 유산 콜로세움">
+            </picture>
+            <figcaption>
+                <strong>로마 콜로세움</strong><br>
+                2000년 전 로마 제국이 지은 거대한 원형경기장으로 고대 건축 기술의 위대함을 보여준다. 
+                역사 속으로 떠나는 여행을 경험할 수 있는 필수 방문지.
+            </figcaption>
+        </figure>
+
+        <figure>
+            <picture>
+                <source media="(max-width: 480px)" srcset="https://via.placeholder.com/400x300?text=small_sydney">
+                <source media="(max-width: 768px)" srcset="https://via.placeholder.com/600x400?text=medium_sydney">
+                <img src="./media/opera.jpg" alt="호주 시드니의 현대 건축 대표작 오페라 하우스">
+            </picture>
+            <figcaption>
+                <strong>시드니 오페라 하우스</strong><br>
+                조개 모양의 독특한 형태로 유명한 현대 건축의 걸작. 
+                하버 브릿지와 함께 시드니의 상징이며 세계 문화유산으로 등재된 명소.
+            </figcaption>
+        </figure>
+    </article>
+
+</body>
+</html>

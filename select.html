@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>좋아하는 과일 선택</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        .select-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 12px;
+            color: #555;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            color: #333;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        select:hover {
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+        }
+
+        option {
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .result-area {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            border: 2px solid #e9ecef;
+        }
+
+        .result-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+            font-weight: 500;
+        }
+
+        .selected-fruit {
+            font-size: 32px;
+            color: #667eea;
+            font-weight: 700;
+            word-break: break-word;
+            min-height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .emoji {
+            margin-right: 10px;
+        }
+
+        .fruit-info {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            color: #888;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            .selected-fruit {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🍎 좋아하는 과일 선택</h1>
+        
+        <div class="select-group">
+            <label for="fruit-select">과일을 선택하세요:</label>
+            <select id="fruit-select">
+                <option value="">-- 과일을 선택해주세요 --</option>
+                
+                <optgroup label="🌴 열대과일">
+                    <option value="🥝 키위">키위</option>
+                    <option value="🍌 바나나">바나나</option>
+                    <option value="🥥 코코넛">코코넛</option>
+                    <option value="🍍 파인애플">파인애플</option>
+                    <option value="🥭 망고">망고</option>
+                    <option value="🍊 오렌지">오렌지</option>
+                </optgroup>
+
+                <optgroup label="🌱 일반 과일">
+                    <option value="🍎 빨간 사과">빨간 사과</option>
+                    <option value="🍏 초록 사과">초록 사과</option>
+                    <option value="🍓 딸기">딸기</option>
+                    <option value="🍒 체리">체리</option>
+                    <option value="🍑 복숭아">복숭아</option>
+                    <option value="🍇 포도">포도</option>
+                    <option value="🍐 배">배</option>
+                </optgroup>
+            </select>
+        </div>
+
+        <div class="result-area">
+            <div class="result-label">선택된 과일</div>
+            <div class="selected-fruit" id="result">
+                <span class="emoji">👇</span> 과일을 선택해주세요
+            </div>
+            <div class="fruit-info" id="fruit-description"></div>
+        </div>
+    </div>
+
+    <script>
+        const select = document.getElementById('fruit-select');
+        const result = document.getElementById('result');
+        const fruitInfo = document.getElementById('fruit-description');
+
+        const fruitDescriptions = {
+            '🥝 키위': '비타민 C가 풍부한 신맛 나는 열대과일',
+            '🍌 바나나': '칼륨이 많아 피로 회복에 좋은 과일',
+            '🥥 코코넛': '독특한 맛과 향을 가진 열대 과일',
+            '🍍 파인애플': '단백질 분해 효소가 있는 달콤한 과일',
+            '🥭 망고': '과일의 왕이라 불리는 달콤한 과일',
+            '🍊 오렌지': '상큼한 맛과 비타민이 풍부한 과일',
+            '🍎 빨간 사과': '아삭한 식감과 달콤한 맛의 과일',
+            '🍏 초록 사과': '신맛이 강하고 아삭한 식감의 과일',
+            '🍓 딸기': '비타민과 항산화 물질이 풍부한 과일',
+            '🍒 체리': '작지만 달콤한 맛의 프리미엄 과일',
+            '🍑 복숭아': '부드럽고 달콤한 여름 과일',
+            '🍇 포도': '다양한 색상과 단맛의 과일',
+            '🍐 배': '수분이 많고 아삭한 식감의 과일'
+        };
+
+        select.addEventListener('change', function() {
+            if (this.value === '') {
+                result.innerHTML = '<span class="emoji">👇</span> 과일을 선택해주세요';
+                fruitInfo.textContent = '';
+            } else {
+                result.textContent = this.value;
+                fruitInfo.textContent = fruitDescriptions[this.value] || '';
+            }
+        });
+    </script>
+</body>
+</html>

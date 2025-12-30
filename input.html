@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여러가지 입력 유형</title>
+</head>
+<body>
+    <form>
+        <!-- 텍스트 입력 -->
+        <label for="username">사용자 이름:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <!-- 이메일 입력 -->
+        <label for="email">이메일:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <!-- 비밀번호 입력 -->
+        <label for="password">비밀번호:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="button" onclick="togglePassword()">👁️</button><br><br>
+
+        <script>
+            function togglePassword() {
+            const passwordInput = document.getElementById('password');
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+            } else {
+                passwordInput.type = 'password';
+            }
+            }
+        </script>
+
+        
+
+        <!-- 라디오 버튼 -->
+        <label for="gender">성별:</label>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">남성</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">여성</label><br><br>
+
+        <!-- 숫자 입력 -->
+        <label for="age">나이:</label>
+        <input type="number" id="age" name="age" min="0" max="150"><br><br>
+
+        <!-- 날짜 입력 -->
+        <label for="dob">생년월일:</label>
+        <input type="date" id="dob" name="dob"><br><br>
+
+        <!-- 체크박스 -->
+        <label for="agree">약관 동의:</label>
+        <input type="checkbox" id="agree" name="agree" required><br><br>
+
+        <!-- 제출 버튼 -->
+        <button type="submit">제출</button>
+
+        <!-- 초기화 버튼 -->
+        <button type="reset">초기화</button>
+
+        <!-- form 태그가 없다면 유효성 검사를 받지 못함-->
+    </form>
+</body>
+</html>
