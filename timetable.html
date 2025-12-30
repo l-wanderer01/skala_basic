@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주간 시간표</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 2px solid #ddd;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #667eea;
+            color: white;
+            font-weight: 600;
+            height: 50px;
+        }
+
+        td {
+            height: 60px;
+            vertical-align: middle;
+        }
+
+        .time-cell {
+            background-color: #f5f5f5;
+            font-weight: 600;
+            color: #333;
+            width: 100px;
+        }
+
+        .lunch {
+            background-color: #fff3cd;
+            font-weight: 600;
+            color: #856404;
+        }
+
+        .meeting {
+            background-color: #d1ecf1;
+            color: #0c5460;
+        }
+
+        .work {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .project {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        tr:hover td:not(.time-cell) {
+            background-color: rgba(102, 126, 234, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            th, td {
+                padding: 10px;
+                font-size: 12px;
+            }
+
+            h1 {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 주간 시간표</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>시간</th>
+                    <th>월요일</th>
+                    <th>화요일</th>
+                    <th>수요일</th>
+                    <th>목요일</th>
+                    <th>금요일</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 09:00 - 10:00 -->
+                <tr>
+                    <td class="time-cell">09:00<br>~10:00</td>
+                    <td class="work">이메일 확인<br>일일 계획</td>
+                    <td class="meeting">팀 미팅</td>
+                    <td class="work">업무 시작</td>
+                    <td class="work">이메일 확인<br>일일 계획</td>
+                    <td class="meeting">주간 회고</td>
+                </tr>
+
+                <!-- 10:00 - 12:00 (2시간, rowspan=2) -->
+                <tr>
+                    <td class="time-cell">10:00<br>~12:00</td>
+                    <td class="project" rowspan="2">프로젝트 회의<br>(2시간)</td>
+                    <td class="work" rowspan="2">업무 진행<br>(2시간)</td>
+                    <td class="project" rowspan="2">개발 작업<br>(2시간)</td>
+                    <td class="work" rowspan="2">업무 진행<br>(2시간)</td>
+                    <td class="work" rowspan="2">주간 정리<br>(2시간)</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">11:00<br>~12:00</td>
+                </tr>
+
+                <!-- 12:00 - 13:00 점심시간 (모든 요일 colspan) -->
+                <tr>
+                    <td class="time-cell">12:00<br>~13:00</td>
+                    <td class="lunch" colspan="5"><strong>🍽️ 점심시간</strong></td>
+                </tr>
+
+                <!-- 13:00 - 14:00 -->
+                <tr>
+                    <td class="time-cell">13:00<br>~14:00</td>
+                    <td class="work">이메일 처리</td>
+                    <td class="meeting">클라이언트 회의</td>
+                    <td class="work">업무 진행</td>
+                    <td class="project">프로젝트 검토</td>
+                    <td class="work">보고서 작성</td>
+                </tr>
+
+                <!-- 14:00 - 16:00 (2시간, rowspan=2) -->
+                <tr>
+                    <td class="time-cell">14:00<br>~16:00</td>
+                    <td class="work" rowspan="2">업무 시간<br>(2시간)</td>
+                    <td class="project" rowspan="2">개발 업무<br>(2시간)</td>
+                    <td class="meeting" rowspan="2">팀 프로젝트<br>(2시간)</td>
+                    <td class="work" rowspan="2">업무 진행<br>(2시간)</td>
+                    <td class="work" rowspan="2">주간 피드백<br>(2시간)</td>
+                </tr>
+                <tr>
+                    <td class="time-cell">15:00<br>~16:00</td>
+                </tr>
+
+                <!-- 16:00 - 17:00 -->
+                <tr>
+                    <td class="time-cell">16:00<br>~17:00</td>
+                    <td class="meeting">목표 점검</td>
+                    <td class="work">업무 정리</td>
+                    <td class="project">성과 검토</td>
+                    <td class="work">업무 마무리</td>
+                    <td class="meeting">주말 계획</td>
+                </tr>
+
+                <!-- 17:00 - 18:00 -->
+                <tr>
+                    <td class="time-cell">17:00<br>~18:00</td>
+                    <td class="work">정리 및 계획</td>
+                    <td class="work">정리 및 계획</td>
+                    <td class="work">정리 및 계획</td>
+                    <td class="work">정리 및 계획</td>
+                    <td class="work">정리 및 계획</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
