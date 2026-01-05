@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const originals = ["사과", "바나나", "오렌지"];
+
+        const copiedArray = [...originals]; // 스프레드 연산자를 사용하여 배열 복사 (원본 객체가 아닌 별도의 객체 생성)
+
+        console.log("원본 배열:", originals);
+        console.log("복사된 배열:", copiedArray);
+
+        // 배열 요소 추가
+        copiedArray[0] = "포도";
+        console.log("원본 배열:", originals);
+        console.log("수정된 복사된 배열:", copiedArray);
+
+        const anotherCopy = originals; // slice() 메서드를 사용하여 배열 복사
+        console.log("깊은 복사된 배열:", anotherCopy);
+
+        anotherCopy.push("키위");
+        console.log("원본 배열:", originals);
+        console.log("수정된 깊은 복사된 배열:", anotherCopy);
+        
+
+        const arr = [];
+
+        arr[0] = "첫 번째 요소";
+        arr[4] = "다섯 번째 요소"; // 인덱스 1, 2, 4는 비어 있음
+
+        console.log("배열:" + arr + "\n길이: " + arr.length); // ["첫 번째 요소", undefined, undefined, undefined, "다섯 번째 요소"]
+
+        for (let i = 0; i < arr.length; i++) {
+            console.log(`인덱스 ${i}: ${arr[i]}`); // 비어 있는 인덱스는 출력되지 않음
+            // 인덱스 0: 첫 번째 요소
+            // 인덱스 1: undefined
+            // 인덱스 2: undefined
+            // 인덱스 3: undefined
+            // 인덱스 4: 다섯 번째 요소
+        }
+
+        for (let index in arr) {
+            console.log(`for...in 인덱스 ${index}: ${arr[index]}`); // 비어 있는 인덱스도 출력됨
+            // for...in 인덱스 0: 첫 번째 요소
+            // for...in 인덱스 4: 다섯 번째 요소
+        }
+
+        for (let value of arr) {
+            console.log(`for...of 값: ${value}`); // 비어 있는 인덱스는 출력되지 않음
+            // for...of 값: 첫 번째 요소
+            // for...of 값: undefined
+            // for...of 값: 다섯 번째 요소
+        }
+
+        // 원하는 값을 직접 입력하여 초기화
+        const array = [
+        [0, 1, 2, 3],
+        [4, 5, 6, 7],
+        [8, 9, 10, 11]
+        ];
+        console.table(array);
+
+    </script>
+</body>
+</html>

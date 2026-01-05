@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table { border-collapse: collapse; width: 50%; margin-top: 20px; }
+        th, td { border: 1px solid #333; padding: 10px; text-align: center; }
+        th { background-color: #eee; }
+    </style>
+</head>
+<body>
+
+    <h2>식량 배분 현황표</h2>
+
+    <table id="distribution-table">
+        <thead>
+            <tr>
+                <th>이름</th>
+                <th>식량</th>
+            </tr>
+        </thead>
+        <tbody id="result-body">
+            </tbody>
+    </table>
+
+    <script>
+        const foods = ["쌀", "보리", "콩", "감자", "양파", "마늘", "배추", "무", "고구마", "호박"];
+        const poors = ["철수", "영희", "민수"];
+
+        // 1. 데이터 분배 (이전과 동일)
+        const results = poors.map(name => ({ name, items: [] }));
+        foods.forEach((food, index) => {
+            results[index % poors.length].items.push(food);
+        });
+
+        // 2. 테이블의 tbody 요소를 선택
+        const tableBody = document.getElementById('result-body');
+
+        // 3. 데이터를 순회하며 DOM 요소를 생성하여 삽입
+        results.forEach(person => {
+            // 새로운 행(tr) 생성
+            const row = document.createElement('tr');
+
+            // 행 내부에 들어갈 셀(td)들을 설정
+            row.innerHTML = `
+                <td>${person.name}</td>
+                <td>${person.items.join(", ")}</td>
+            `;
+
+            // tbody에 완성된 행을 추가
+            tableBody.appendChild(row);
+        });
+
+        console.table(results);
+    </script>
+</body>
+</html>
