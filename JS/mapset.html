@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map & Set</title>
+</head>
+<body>
+    <script>
+        const myMap = new Map();
+        myMap.set("name", "홍길동");
+        myMap.set(123, "숫자 키");
+        console.log("myMap의 name:", myMap.get("name")); // "홍길동"
+        console.log("myMap의 123:", myMap.get(123)); // "숫자 키"
+
+        const mySet = new Set();
+        mySet.add("apple");
+        mySet.add("banana");
+        mySet.add("apple"); // 중복된 값은 추가되지 않음
+        console.log("mySet 크기:", mySet.size); // 2
+        console.log("mySet 포함 여부 (banana):", mySet.has("banana")); // true
+    </script>
+</body>
+</html>
