@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자-문자열 변환</title>
+</head>
+<body>
+    <script>
+        const num = 123;
+        const str1 = String(num); // 숫자를 문자열로 변환
+        const str2 = "456";
+        const num2 = Number(str2); // 문자열을 숫자로 변환
+
+        console.log("num:" + num, "str:" + str1);
+        console.log("num:" + typeof num, "str:" + typeof str1); // typeof 연산자: 변수의 자료형 확인
+
+        const str3 = "789abc";
+        const num3 = Number(str3); // 변환 불가 시 NaN 반환
+        console.log("str3:" + str3, "num3:" + num3);
+
+        const num4 = parseInt(str3, 16); // 문자열의 앞부분만 숫자로 변환 (16진수로 변환)
+        console.log("str3:" + str3, "num4:" + num4);
+
+        // const str4;
+        // -> "Uncaught SyntaxError: Missing initializer in const declaration (at number.html:25:15)" 콘솔에 이와 같이 출력됨
+        let str4;
+        console.log("str4:" + str4);
+        str4 = "홍길동"; // 변수 초기화
+        console.log("str4:" + str4);
+
+        let str5 = null; // 명시적으로 값이 없음을 지정
+        let str6; // undefined: 값이 할당되지 않은 상태
+        console.log(str5 == str6); // true (값만 비교)
+        console.log(str5 === str6); // false (자료형까지 비교)
+    </script>
+</body>
+</html>
