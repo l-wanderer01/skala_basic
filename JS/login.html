@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+</head>
+<body>
+    <h1>로그인 폼</h1>
+    <label for="username">사용자 이름:</label>
+    <input type="text" id="username" name="username" required>
+    <br><br>
+    <label for="password">비밀번호:</label>
+    <input type="password" id="password" name="password" required>
+    <br><br>
+    <button id="summit-button" type="submit">로그인</button>
+
+    <script type="module">
+        import { isNotEmpty } from './validator.js'; // 모듈 가져오기
+
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const summit = document.getElementById('summit-button');
+
+        summit.addEventListener('click', (event) => {
+            event.preventDefault(); // 폼 제출 기본 동작 방지
+            const usernameValue = username.value;
+            const passwordValue = password.value;
+            if (isNotEmpty(usernameValue, '사용자 이름') && isNotEmpty(passwordValue, '비밀번호')) {
+                alert('로그인 성공!');
+                // 실제 로그인 처리 로직은 여기에 추가
+            }
+        });
+    </script>
+</body>
+</html>
