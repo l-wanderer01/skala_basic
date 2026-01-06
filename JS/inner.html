@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS DOM 실습(innerHTML과 textContent)</title>
+</head>
+<body>
+    <!-- 출력 대상: <strong>안녕하세요</strong>, <em>홍길동</em>입니다. -->
+    <!-- “html-div” 요소와 “text-div” 요소에 각각 출력 -->
+    <h1>innerHTML 표시</h1>
+    <div id="html-div"></div>
+    <hr>
+    <h1>textContent 표시</h1>
+    <div id="text-div"></div>
+    <script>
+        const message = "<strong>안녕하세요</strong>, <em>홍길동</em>입니다.";
+
+        const htmlDiv = document.getElementById('html-div');
+        htmlDiv.innerHTML = message; // HTML 태그가 해석되어 적용됨
+        const textDiv = document.getElementById('text-div');
+        textDiv.textContent = message; // HTML 태그가 문자 그대로 표시됨
+    </script>
+</body>
+</html>
