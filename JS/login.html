@@ -15,7 +15,7 @@
     <br><br>
     <button id="summit-button" type="submit">로그인</button>
 
-    <script type="module">
+    <script type="module"> // module로 설정해야 모듈 가져오기 가능
         import { isNotEmpty } from './validator.js'; // 모듈 가져오기
 
         const username = document.getElementById('username');
@@ -23,10 +23,9 @@
         const summit = document.getElementById('summit-button');
 
         summit.addEventListener('click', (event) => {
-            event.preventDefault(); // 폼 제출 기본 동작 방지
-            const usernameValue = username.value;
+            const usernameValue = username.value; // 입력 값 가져오기
             const passwordValue = password.value;
-            if (isNotEmpty(usernameValue, '사용자 이름') && isNotEmpty(passwordValue, '비밀번호')) {
+            if (isNotEmpty(usernameValue, '사용자 이름') && isNotEmpty(passwordValue, '비밀번호')) { // 가져온 validator.js의 함수 사용
                 alert('로그인 성공!');
                 // 실제 로그인 처리 로직은 여기에 추가
             }
