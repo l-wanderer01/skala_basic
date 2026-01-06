@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function buildObject(name, age) {
+            return { name: name, age: age };
+        }
+
+        const person = buildObject("김철수", 30);
+        console.log(person);
+
+        const { name } = buildObject("홍길동", 25);
+        console.log(name);
+
+        function buildArray(a, b, c) {
+            return [a, b, c];
+        }
+        const [ , second, ] = buildArray(10, 20, 30)
+        console.log(second);
+    </script>
+</body>
+</html>
