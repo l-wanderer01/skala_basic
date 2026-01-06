@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이라이트</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+            color: red;
+            font-weight: bold;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        이 문장을 강조해보세요!
+    </p>
+    <button id="highlight-btn" style="margin-top: 20px;">강조 토글</button>
+    <script>
+        const button = document.getElementById('highlight-btn');
+        const div = document.querySelector('p');
+
+        button.addEventListener('click', () => {
+            // 토글 방식으로 강조 클래스 추가/제거
+            // div.classList.toggle('highlight');
+
+            // 직접 확인 후 추가/제거 방식
+            // if (div.classList.contains('highlight')) {
+            //     div.classList.remove('highlight');
+            //     button.textContent = '강조 토글';
+            // } else {
+            //     div.classList.add('highlight');
+            //     button.textContent = '강조 해제';
+            // }
+        });
+    </script>
+</body>
+</html>
